@@ -83,7 +83,7 @@ app.get('/weather', (req, res) => {
       })
     }
 
-    forecast(latitude,longitude,(eroor,{summary,temperature,precipProbability} = {}) => {
+    forecast(latitude,longitude,(eroor,{summary,temperature,precipProbability,temperatureHigh,temperatureLow} = {}) => {
       if(error){
         return res.send({
           error: error
@@ -94,6 +94,8 @@ app.get('/weather', (req, res) => {
         location: location,
         temperature: temperature,
         precipProbability: precipProbability,
+        temperatureHigh: temperatureHigh,
+        temperatureLow: temperatureLow,
         summary: summary
       })
 
